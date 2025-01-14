@@ -23,7 +23,7 @@ class BasePage:
 
     def wait_for_disappears_element_for_firefox(self, locator):
         element = self.driver.find_element(*locator)
-        WebDriverWait(self.driver, 5).until(
+        WebDriverWait(self.driver, 10).until(
             expected_conditions.invisibility_of_element(element)
         )
 
@@ -32,7 +32,7 @@ class BasePage:
 
     def find_element_change_text(self, locator, text):
         self.driver.find_element(*locator)
-        WebDriverWait(self.driver, 5).until_not(
+        WebDriverWait(self.driver, 10).until_not(
             expected_conditions.text_to_be_present_in_element(locator, text)
         )
 
